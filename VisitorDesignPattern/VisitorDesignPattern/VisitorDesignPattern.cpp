@@ -74,6 +74,7 @@ public:
  * might be helpful to store some intermediate state of the algorithm while
  * executing visitor's methods over various objects of the structure.
  */
+
 class ConcreteVisitor1 : public Visitor {
 public:
 	void VisitConcreteComponentA(const ConcreteComponentA* element) const override {
@@ -94,11 +95,13 @@ public:
 		std::cout << element->SpecialMethodOfConcreteComponentB() << " + ConcreteVisitor2\n";
 	}
 };
+
 /**
  * The client code can run visitor operations over any set of elements without
  * figuring out their concrete classes. The accept operation directs a call to
  * the appropriate operation in the visitor object.
  */
+
 void ClientCode(std::array<const Component*, 2> components, Visitor* visitor) {
 	// ...
 	for (const Component* comp : components) {
